@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!--
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!--
+  If you want no numbers on the slides add a "nonumbers" class
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another.
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Git best practices</title>
+<!--
+  If you upload your slides to the web, ensure that you have
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>Git best practices</h1>
+    <p class="footer">
+      {Perrine Letellier},
+      {<a href="mailto:you@email.com">p.letellier@qwant.com</a>}
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <p>This slide deck is using the shower system - roll over the previews to see the notes and click any slide to go into presentation mode. Then use keys to navigate. <button onclick="goFullScreen()">Go fullscreen</button></p>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+       This slide deck is a support for a team talk about git and how we wan't to use it for the best.
+    </p>
+  </aside>
+
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Git best practices</h2>
+      </header>
+      <img src="pictures/git_best_practices/xkcd-vc.jpg"
+           class="middle shadow" height="400"
+           alt="Version Control">
+      <small class="byline">
+        Qwant Music, Ajaccio, 21-02-2018
+      </small>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="plan" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>What you're about to understand ?</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+    <div id="CD" class="slide"><div>
+       <section>
+         <header>
+         </header>
+         <ul class="inner">
+           <li class="active">What's continuous deployment ?</li>
+           <li>What's version control ?</li>
+           <li>Tools for version control</li>
+           <li>Development workflow</li>
+           <li>Tips & resources</li>
+         </ul>
+         <footer class="notes">
+         </footer>
+       </section>
+    </div></div>
+
+   <div id="disclamer" class="slide"><div>
+     <section>
+       <header>
+         <h2>Disclaimer</h2>
+       </header>
+       <p>You may already know about the following, or have different points of vue, then share !</p>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="vocabulary" class="slide"><div>
+     <section>
+       <header>
+         <h2>What means ...</h2>
+       </header>
+       <p><strong>Deploy</strong>: "to install, test and implement an application or computer system."<br/>
+       <strong>Continuous Integration</strong>: "to integrate your work constantly with your team members."<br/>
+       <strong>Continuous Delivery</strong>: "provide your work constantly for review by the team or client."<br/>
+       <strong>Continuous Deployment</strong>: "deploy your work constantly into client's server."<br/>
+       => Continuous Deployment becomes a reflex after having been a discipline."</p>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="first" class="slide"><div>
+     <section>
+       <header>
+         <h2>Here's how to start</h2>
+       </header>
+       <ul>
+         <li>Coding standards (lint)</li>
+         <li>Everything in code (comments)</li>
+         <li>Development environment should be like production environment</li>
+         <li>Automated tests</li>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="VC" class="slide"><div>
+     <section>
+       <header>
+         <h2>Why version control is important ?</h2>
+       </header>
+       <ul>
+         <li>Colaboration (and avoiding shouting through the office that <strong>you</strong> are curently working on file xyz...)</li>
+         <li>Storing versions</li>
+         <li>Restoring previous versions</li>
+         <li>Enable offline work (git only)</li>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="repositories" class="slide"><div>
+     <section>
+       <header>
+         <h2>Local and remote repositories</h2>
+       </header>
+       <ul>
+         <li>A <strong>local</strong> repository resides on your local computer</li>
+         <li>A <strong>remote</strong> repository is located on a remote server. Used by teams to share & exchange data: they are the common base. Default name is <code>origin</code>.</li>
+       </ul>
+       <p> 2 ways to get a local repository : <code> git init</code> or <code> git clone</code>
+       </p>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="basics" class="slide"><div>
+     <section>
+       <header>
+         <h2>Basic commands</h2>
+       </header>
+       <ul>
+         <li><code> git pull origin master</code></li>
+         <li><code> git branch new_branch</code> + <code> git checkout new_branch</code> = <code> git checkout -b new_branch</code></li>
+         <li><code> git add file_name</code></li>
+         <li><code> git commit -m"feat: add file_name"</code></li>
+         <li><code> git push origin master</code></li>
+         <li><code> git status</code></li>
+         <li><code> git log</code></li>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="commit1" class="slide"><div>
+     <section>
+       <header>
+         <h2>Commit best practices</h2>
+       </header>
+       <ul>
+         <code>git commit -m "doc: add usage in README.md"</code>
+         <li>Commit related changes (<code>git add -p</code> helps a lot)</li>
+         <ul>
+           <li>2 differents bug fixes => 2 different commits</li>
+           <li>small commits => easier for team members to understand</li>
+         </ul>
+         <li>Commit often</li>
+         <ul>
+           <li>helps keeping small commits</li>
+           <li>helps integrating changes regularly</li>
+           <li>avoid merge conflicts</li>
+         </ul>
+        </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+
+      <div id="commit2" class="slide"><div>
+        <section>
+          <header>
+            <h2>Commit best practices</h2>
+          </header>
+          <ul>
+            <code>git commit -m "doc: add usage in README.md"</code>
+            <li>Don't commit half done work</li>
+            <li>Test before commit</li>
+            <li>Write good commit messages</li>
+            <ul>
+              <li>use the imperative, present tense ("change" not "changed" of "changes")</li>
+              <li>use a commit comment prefix in ("feat:", "fix:", "ref:", "doc:")</li>
+            </ul>
+          </ul>
+          <footer class="notes">
+          </footer>
+        </section>
+      </div></div>
+
+   <div id="branching1" class="slide"><div>
+     <section>
+       <header>
+         <h2>Branching best practices</h2>
+       </header>
+       <ul>
+         <li><code>master</code> branch, as the production branch is the mainline</li>
+         <ul>
+           <li>should be protected from manual <code>push</code> and <code>merge</code></li>
+         </ul>
+         <li>Know the current branch <code>git branch -a</code></li>
+         <li>Tag releases on <code>master</code> branch.</li>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="branching2" class="slide"><div>
+     <section>
+       <header>
+         <h2>Branching best practices</h2>
+       </header>
+       <img src="pictures/git_best_practices/git_branch_strategy.png" class="right" alt="Branch strategy">
+       <ul>
+         <li>Only merge with neighbors (featureX -> dev -> master)</li>
+         <li>Create branches from master/develop at first. The further from master, the crazier</li>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="workflow" class="slide"><div>
+     <section>
+       <header>
+         <h2>Git workflow</h2>
+       </header>
+       <ol>
+         <li>Pull to update your local master</li>
+         <li>Check out a feature branch</li>
+         <li>Do work in your feature branch, committing early and often</li>
+         <li>Rebase frequently to incorporate upstream changes</li>
+         <li>Interactive rebase (squash) your commits</li>
+         <li>Merge your changes with master/develop</li>
+         <li>Push your changes to the upstream</li>
+       </ol>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="MR" class="slide"><div>
+     <section>
+       <header>
+         <h2>Merge requests on gitlab ...</h2>
+       </header>
+       <ul>
+         <li>... or pull requests on github</li>
+         <li>Current benefits :</li>
+         <ul>
+           <li>code review (comment for anyone, ask for change, education, guidelines)</li>
+           <li>reduces conflicts</li>
+           <li>make it visual</li>
+           <li>continuous delivery</li>
+         </ul>
+         <li>Long term benefits :</li>
+         <ul>
+           <li>automated tests once the continuous integration is set up => better stability</li>
+           <li>link with jira tickets</li>
+         </ul>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+   <div id="donts" class="slide"><div>
+     <section>
+       <header>
+         <h2>Dont's</h2>
+       </header>
+       <ul>
+         <li>Rush & use <code>reset</code> without knowing what you do</li>
+         <li>Use <code>git merge</code> : use merge requests instead (even for hotfixes)</li>
+         <li>Commit configuration files</li>
+         <ul>
+           <li>might change from env to env & contain passwords and creds</li>
+         </ul>
+         <li>Commit large binary files</li>
+         <li>Commit anything that can be generated from other things that were commited</li>
+         <ul>
+           <li>use <code>.gitignore</code> a lot to avoid that</li>
+           <li>except for <code>package-lock.json</code> ! details <a href=https://stackoverflow.com/questions/44206782/do-i-commit-the-package-lock-json-file-created-by-npm-5>here</a></li>
+         </ul>
+       </ul>
+       <footer class="notes">
+       </footer>
+     </section>
+   </div></div>
+
+     <div id="does" class="slide"><div>
+       <section>
+         <header>
+           <h2>Do's, Tips & tricks</h2>
+         </header>
+         <ul>
+           <li>Never ever panic !</li>
+           <ul>
+             <li>once commited the work can't be lost for at least 2 weeks</li>
+             <li>before, attempting to find lost commits, be sure you will not lose any current work (<code>git commit</code> or <code>git stash</code>, but name your stashes !)</li>
+             <li><code>git reflog</code> is (sometimes) your friend</li>
+           </ul>
+           <li>Keep a clean history : <code>git rebase -i HEAD~12</code> helps a lot </li>
+          </ul>
+         <footer class="notes">
+         </footer>
+       </section>
+     </div></div>
+
+     <div id="tips1" class="slide"><div>
+       <section>
+         <header>
+           <h2>Tips & tricks</h2>
+         </header>
+         <ul>
+           <li>Understand, what is <code>HEAD</code>, to understand error messages !</li>
+           <ul>
+             <li>reference to the current commit in the current branch, only 1 <code>HEAD</code> at a given time</li>
+             <li>if you're not on the latest commit, <code>HEAD</code> is a point to a prior commit in history (<code>git checkout commit_id</code>), its called detached HEAD.</li>
+           </ul>
+           <li>Pull with <code>git pull --rebase</code> to keep a linear history</li>
+           <li>Validate your repo is sane <code>git fsck</code> ?</li>
+          </ul>
+         <footer class="notes">
+         </footer>
+       </section>
+     </div></div>
+
+     <div id="tips2" class="slide"><div>
+       <section>
+         <header>
+           <h2>Tips & tricks</h2>
+         </header>
+         <ul>
+           <li>Alias for your <code>.gitconfig</code></li>
+           <pre>
+             <code>[alias]</code>
+             <code>   ci = commit</code>
+             <code>   st = status</code>
+             <code>   co = checkout</code>
+             <code>   br = branch</code>
+           </pre>
+           <li>Practice and experiment everyday for real, or with <a>https://learngitbranching.js.org/</a></li>
+          </ul>
+         <footer class="notes">
+         </footer>
+       </section>
+     </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks ! Questions ?</h2>
+      </header>
+      <blockquote class="lots">
+        Let's do this !
+      </blockquote>
+      <img src="pictures/git_best_practices/letsdothis.gif" alt="Let's do this">
+
+    <footer class="notes">
+    </footer>
+
+    </section>
+  </div></div>
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
